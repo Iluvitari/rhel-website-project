@@ -4,6 +4,14 @@
     </head>
  
     <body>
+        <header>
+        <ul>
+        <li>Interview Website</li>
+        <li>Testing Code Update</li>
+        <li>unautomated</li>
+        </ul>
+        </header>
+
     <?php
         $dbhost = '192.168.4.103:3306';
         $dbuser = 'dbuser';
