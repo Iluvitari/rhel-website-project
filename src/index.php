@@ -8,7 +8,7 @@
         <ul>
         <li>Interview Website</li>
         <li>Testing Code Update</li>
-        <li>AUTOMATED TEST</li>
+        <li>AUTOMATED TEST attempt 2</li>
         </ul>
         </header>
 
