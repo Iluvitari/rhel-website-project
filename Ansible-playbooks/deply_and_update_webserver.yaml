@@ -8,11 +8,12 @@
     repo_folder: /home/suetbroughton/github-deployment/repos/
     live_folder: /home/suetbroughton/php-docker
     repo_name: Iluvitari/rhel-website-project
+    keyfile: /home/suetbroughton/.ssh/id_ed25519
   tasks:
     - git:
         repo: ssh://git@github.com/{{ repo_name }}.git
         dest: "{{ repo_folder }}"
-        key_file: /home/suetbroughton/.ssh/id_ed25519
+        key_file: "{{ keyfile }}""
         update: yes
     - name: Copy Dockerfile to live directory
       command: \cp -TRv Dockerfile {{ live_folder }}/Dockerfile
