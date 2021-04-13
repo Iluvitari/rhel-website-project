@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Update Ansible Tower inventory
+      uri:
+       url: https://192.168.4.102/api/v2/groups/{{GROUP2}}/hosts/
+       user: admin
+       password: AdminPassword
+       method: POST
+       body: '{ "name" : "{{FQDN}}" }'
+       force_basic_auth: yes
+       status_code: 201
+       body_format: json
+       validate_certs: no
+
+       #sudo ansible-playbook add_ansible_tower.yaml -e FQDN=apl00001 -e GROUP2=2
