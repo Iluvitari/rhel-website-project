@@ -13,7 +13,7 @@
     - git:
         repo: ssh://git@github.com/{{ repo_name }}.git
         dest: "{{ repo_folder }}"
-        key_file: "{{ keyfile }}""
+        key_file: "{{ keyfile }}"
         update: yes
     - name: Copy Dockerfile to live directory
       command: \cp -TRv Dockerfile {{ live_folder }}/Dockerfile
