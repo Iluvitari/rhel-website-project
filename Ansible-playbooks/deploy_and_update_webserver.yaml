@@ -25,3 +25,9 @@
         chdir: "{{ repo_folder }}"
     - name: Copy src to live directory
       command: \cp -TRv src {{ live_folder }}/src
+      args:
+        chdir: "{{ repo_folder }}"
+    - name: docker restart
+      command: docker-compose restart
+      args:
+              chdir: "{{ live_folder }}"
