@@ -1,0 +1,25 @@
+---
+
+- name: Deploy php-webserver build
+  connection: ssh
+  gather_facts: true
+  hosts: apl00001
+  vars:
+    repo_folder: /home/suetbroughton/github-deployment/repos/
+    live_folder: /home/suetbroughton/php-docker
+    repo_name: Iluvitari/rhel-website-project
+  tasks:
+    - git:
+        repo: ssh://git@github.com/{{ repo_name }}.git
+        dest: "{{ repo_folder }}"
+        update: yes
+    - name: Copy Dockerfile to live directory
+      command: \cp -TRv Dockerfile {{ live_folder }}/Dockerfile
+      args:
+        chdir: "{{ repo_folder }}"
+    - name: Copy docker-compose.yml to live directory
+      command: \cp -TRv docker-compose.yml {{ live_folder }}/docker-compose.yml
+      args:
+        chdir: "{{ repo_folder }}"
+    - name: Copy src to live directory
+      command: \cp -TRv src {{ live_folder }}/src
